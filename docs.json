@@ -15,7 +15,7 @@
         "groups": [
           {
             "group": "Get Started",
-            "pages": ["introduction", "userguide", "development"]
+            "pages": ["introduction", "userguide", "credits", "development"]
           },
           {
             "group": "Essentials",
