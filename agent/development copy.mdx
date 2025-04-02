@@ -1,0 +1,178 @@
+---
+title: Development
+---
+
+## Development Guide 🚀
+
+This document will help you create, deploy, and integrate AI agents seamlessly on our platform.
+Whether you're building an API, chatbot, or website-based AI, this guide will walk you through the essential steps.
+
+## 📂 Folder Structure
+
+To keep things organized, structure your project like this:
+
+```
+/my-agent
+│── Dockerfile
+│── .env (ignored in Git)
+│── requirements.txt (for Python projects)
+│── src/
+│ ├── main.py (entry point)
+│ ├── utils.py
+│ ├── handlers/
+│── logs/
+│ ├── agent.log
+```
+
+## 🌐 Routes & API Endpoints
+
+Your agent can expose API endpoints for users to interact with. Example setup in Flask:
+
+```
+from flask import Flask, request, jsonify
+app = Flask(**name**)
+
+agent_id = OS.getenv("AGENT_ID")
+api_key = OS.getenv("CREATOR_API_KEY")
+
+def check_agent_run(user_token, api_key, agent_id):
+    url = "https://optimalagents.ai/check-user-credits"
+    headers = {"User-Token": user_token}
+    data = {"api_key": api_key, "agent_id": agent_id}
+    response = requests.post(url, json=data, headers=headers)
+    result = response.json()
+
+    if result.get("status") == "allowed":
+        print("Agent execution permitted.")
+    else:
+        print(f"Error: {result.get('message')}")
+
+
+@app.route("/")
+def home():
+    return "Welcome to the AI Agent!"
+
+@app.route("/docs")
+def docs():
+    return "API Documentation: /process"
+
+@app.route("/run", methods=["POST"])
+def run():
+    ##check for user authorization and credit verification
+    resp = check_agent_run(request.headers.get("User-Token"), api_key, agent_id)
+    if resp.get("status") == "allowed":
+        authorized = True
+        enough_credits = True
+    else:
+        authorized = False
+        enough_credits = False
+    if not authorized or not enough_credits:
+        return jsonify({"error": "Unauthorized or insufficient credits"}), 403
+    data = request.json
+    response = {"result": "Processed " + str(data)}
+    return jsonify(response)
+
+if **name** == "**main**":
+    app.run(host='0.0.0.0', port=5000)
+```
+
+Ensure your routes are well-documented and secured.
+
+## 🔑 Env Variables (Secrets)
+
+Secrets are environment variables required by your agent to function which will be passed to the Docker container when the agent runs.
+Store them securely in your profile's Secret manager. These variables will be securely managed by OptimalAgents.ai and injected into the agent’s docker runtime environment.
+
+```
+API_KEY=your_api_key
+DB_URL=your_database_url
+MODEL_NAME=gpt-4
+```
+
+Never hardcode secrets! Load them in your app like this:
+
+```
+import os
+api_key = os.getenv("API_KEY")
+```
+
+## 🔐 Credit Check & Authorization
+
+Before running, agents must verify user credits via the OptimalAgents API.
+
+✅ Credit Check API
+
+Make a request before executing agent logic:
+
+```
+POST https://optimalagents.ai/check-user-credits
+Content-Type: application/json
+User-Token: <USER_TOKEN>
+
+{
+  "api_key": "<CREATOR_API_KEY>",
+  "agent_id": "<AGENT_ID>"
+}
+
+```
+
+Handling Responses
+
+Response Examples
+Success Response
+{
+"status": "allowed",
+"message": "Agent execution permitted."
+}
+
+Error Response (Not Enough Credits)
+{
+"status": "error",
+"message": "Not enough credits to run the agent."
+}
+
+Error Response (Unauthorized Agent)
+{
+"status": "error",
+"message": "Agent not allowed for this user."
+}
+
+## 🐳 Docker Containerization
+
+All agents run inside Docker containers. Your Dockerfile should look like this:
+
+```
+FROM python:3.9
+WORKDIR /app
+COPY . /app
+RUN pip install -r requirements.txt
+CMD ["python", "src/main.py"]
+```
+
+Steps to Build & Run
+
+Build the container:
+
+```
+docker build -t my-agent .
+```
+
+Run the container:
+
+```
+docker run -p 5000:5000 my-agent
+```
+
+## 📜 Logging & Monitoring
+
+Use logging for debugging and tracking agent performance.
+
+```
+import logging
+logging.basicConfig(level=logging.INFO, filename='logs/agent.log')
+logging.info("Agent started successfully!")
+```
+
+Always log errors and API failures for troubleshooting!
+
+Congratulations! 🎉 You now have everything needed to create and deploy AI agents on OptimalAgents.ai. If you need help, reach out to our support team or explore our community forums! 🚀

@@ -1,0 +1,64 @@
+---
+title: LLM
+---
+
+## 🤖 LLM Integration
+
+Creators can integrate any AI model into their agents using API keys. These models can be accessed via their official SDKs or HTTP APIs.
+
+## 🔗 Supported LLMs
+
+Agents can connect to models like:
+
+- OpenAI GPT (via OpenAI SDK)
+
+- Anthropic Claude
+
+- Mistral AI
+
+- Google Gemini
+
+- Hugging Face
+
+## 🔑 Using API Keys
+
+LLM integrations require an API key. You can:
+
+Use platform-provided API keys (recommended for ease of use).
+
+Use your own API key if you have an existing subscription.
+
+🛠️ Example: Using OpenAI GPT
+
+```
+import openai
+import os
+
+openai.api_key = os.getenv("OPENAI_API_KEY")
+
+def get_response(prompt):
+    response = openai.ChatCompletion.create(
+        model="gpt-4",
+        messages=[{"role": "user", "content": prompt}]
+    )
+    return response["choices"][0]["message"]["content"]
+```
+
+Ensure your API key is stored securely in your secrets or if using OptimalAgents.ai API-Key, they must be enabled in Creators' secrets manager!
+
+## 🔑 Obtaining API Keys
+
+To get an API key from our platform OptimalAgents.ai:
+
+- Go to your profile settings on the OptimalAgents portal.
+
+- Navigate to the "Secrets" section.
+
+- Request an API Key for the desired LLM provider.
+
+- Once approved, the key will appear in your Secrets.
+
+- Use it in your agent by fetching it from environment variables.
+
+Congratulations! 🎉 You now have everything needed to create and deploy AI agents on OptimalAgents.ai.
+If you need help, reach out to our support team or explore our community forums! 🚀

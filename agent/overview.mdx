@@ -1,0 +1,94 @@
+---
+title: Overview
+---
+
+## Agent Overview
+
+Agents on OptimalAgents.ai can be designed to serve various purposes, not limited to:
+
+- Data processing APIs
+- AI chatbots
+- Web-based AI solutions
+- AI-powered applications
+- AI tools for specific tasks
+- AI assistants for specific domains
+- Analytics and reporting tools
+- Data Analysis & Dashboards for data visualization
+
+Creators have complete flexibility in choosing the type of **Problems** they want to solve.
+Creators have full control in choosing programming languages, frameworks, and AI models to build their agents.
+They can leverage any AI models, including LLMs, and utilize various libraries and tools to enhance their agents' capabilities.
+The platform supports a wide range of programming languages, including Python, JavaScript, GO etc.
+These agents will operate in a secure and flexible environment using Docker containers.
+
+Below are detailed guidelines for AI creators to develop, deploy, and integrate their AI agents on OptimalAgents.ai.
+
+## Key Points
+
+**Agent Functionality**
+
+- Creators should create understand Agent functionality in terms of APIs, webpages, Chatbots served by the agent.
+
+**Agent Deployment**
+
+- Agents are deployed in Docker containers, which provide a secure and isolated environment for running the agent's code.
+
+**Agent Secrets**
+
+- Each agent can have its own set of environment variables, which can be used to store sensitive information such as API keys, database credentials, and other configuration settings.
+- Environment variables (Secrets) must be set up in the Creator's Secret manager to be accessed for the agent's Docker container.
+
+**Agent Authorization**
+
+- Agents can be configured to require user authorization before they can be accessed e.g. Premium Agents.
+- This can be done by implementing an authorization mechanism in the agent's code i.e. API call to check User access to the Agent.
+- The agent can then check the user's authorization status before allowing access to its functionality.
+
+**Agent Credit Verification**
+
+- Agents can be configured to require credit verification before they can be accessed e.g. All Agents.
+- This can be done by implementing a credit verification mechanism in the agent's code i.e. API call to check User credits to access the Agent.
+- The agent can then check the user's credit status before allowing access to its functionality.
+
+**LLM Integration**
+
+- Agents can be integrated with any type of AI models, LLM, SLM etc to enhance their capabilities and provide more advanced functionality.
+- This can be done by using the LLM API-KEYs to send requests and receive responses from the LLM.
+- The agent can then process the LLM's response and use it to provide more accurate and relevant results to the user.
+
+**Agent Integrations**
+
+- Integrations stand for the ability to connect and interact with other services, APIs, and platforms e.g. Slack, Google, Zoho etc.
+- Agents can be enhance their functionality and provide more advanced features by using mechanism of API-Keys & Integration SDKs.
+- This can be done by using APIs to send requests and receive responses from other services.
+- The agent can then process the response and use it to provide more accurate and relevant results to the user.
+
+**Agent Performance**
+
+- Agents should be designed to handle a large number of requests and provide fast response times.
+- This can be achieved by optimizing the agent's code, using caching mechanisms, and implementing load balancing techniques.
+
+**Agent Security**
+
+- Agents should be designed with security in mind, including protecting sensitive information, preventing unauthorized access, and ensuring data integrity.
+- This can be achieved by implementing secure coding practices, using encryption, and following best practices for securing APIs and web applications.
+
+**Agent Testing**
+
+- Agents should be thoroughly tested before deployment to ensure they function as intended and meet the requirements of the users.
+- This can be achieved by implementing unit tests, integration tests, and end-to-end tests to verify the agent's functionality and performance.
+
+## Expectations
+
+Expectations for AI creators include:
+
+- Creating agents that are user-friendly and easy to understand
+- Ensuring agents are capable of handling user requests efficiently and effectively
+- Providing clear and concise documentation for users to understand how to interact with the agents
+- Ensuring agents are secure and do not expose sensitive information or vulnerabilities
+- Following best practices for coding and deployment to ensure reliability and maintainability
+- Testing agents thoroughly before deployment to ensure they function as intended
+- Monitoring agent performance and user feedback to make improvements over time
+- Providing support and assistance to users as needed
+- Keeping agents up to date with the latest features and improvements from OptimalAgents.ai
+- Ensuring agents are compliant with any relevant regulations or guidelines

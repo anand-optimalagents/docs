@@ -1,0 +1,54 @@
+---
+title: Upload Agent
+---
+
+## Uploading Your Agent
+
+Uploading your agent to OptimalAgents.ai is a straightforward process. Follow these steps to ensure a smooth upload:
+
+## 📂 Folder Structure
+
+To keep things organized, structure your project like this:
+
+```
+/my-agent
+│── Dockerfile
+│── .env (ignored in Git)
+│── requirements.txt (for Python projects)
+│── src/
+│ ├── main.py (entry point)
+│ ├── utils.py
+│ ├── handlers/
+│── logs/
+│ ├── agent.log
+```
+
+## 🚀 Upload Your Agent
+
+1. **Remove Packages**: Do not include unnecessary files or folders (like `.git` or `node_modules` or `virtual env` folders) to keep the upload size minimal.
+2. **Zip the Project**: Compress your project folder into a `.zip` file. Ensure that the Dockerfile and all necessary files are included in the zip.
+3. **Check the Size**: Ensure the zip file is within the upload limits set by OptimalAgents.ai (typically 100MB). If your project exceeds this limit, consider optimizing or splitting it into smaller components.
+4. **Create Agent**: Go to the OptimalAgents.ai platform, navigate to the Agent upload page, Fill in the necessary details about your agent, including its name, description, and any relevant tags. This information will help users understand the purpose and functionality of your agent.
+5. **Upload the Zip**: Select your zipped project file and upload it. Wait for the upload to complete. You will receive a notification once the upload is successful.
+6. **Media Files**: Please upload any relevant media files (images, videos) that showcase your agent's functionality. This is optional but highly recommended for better visibility and understanding of your agent.
+7. **Submit for Review**: Once the upload is complete, submit your agent for review. The OptimalAgents.ai team will review your submission and provide feedback or approval.
+8. **Testing**: After approval, test your agent to ensure it functions as expected. You can do this by running sample queries or using the provided API endpoints.
+9. **Documentation**: Ensure that your agent is well-documented. This includes providing clear instructions on how to use the agent, its features, and any dependencies it may have.
+10. **Publish**: Once you are satisfied with the testing and documentation, publish your agent to make it available to users. You can do this through the OptimalAgents.ai platform.
+11. **Monitor Performance**: After publishing, monitor your agent's performance and user feedback. This will help you identify any issues and improve the agent over time.
+12. **Updates**: Regularly update your agent to fix bugs, add new features, and improve performance. You can do this by uploading new versions of your agent and following the same upload process.
+
+## 🎥 Media Files
+
+1. You have to create a small video about the agent. We recommend .mp4 format, while others will also work.
+2. Video length should be minimum 60sec but not more than 180sec.
+3. Language of the video should be English.
+4. It is recommended to talk about the below in the video you create.
+
+- a. State problem statement - Why the problem? Who will use the solution?
+- b. Solutioning/Whiteboarding - How are you going to solve this?
+- c. Input of the agent created - What does someone need to input? In what format, conditions, etc.
+- d. Output of the agent created - What is the output of Agent? Text, Voice, Image, Video, Data, etc
+- e. And whatever relevant you would want to talk about.
+
+5. You can also create a small instagram/tiktok reel in addition to above, ideally 20-30sec.

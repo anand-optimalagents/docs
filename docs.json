@@ -15,7 +15,26 @@
         "groups": [
           {
             "group": "Get Started",
-            "pages": ["introduction", "userguide", "credits", "development"]
+            "pages": [
+              "introduction",
+              "userguide",
+              "account",
+              "credits",
+              "development"
+            ]
+          },
+          {
+            "group": "Agents",
+            "pages": [
+              "agent/overview",
+              "agent/development",
+              "agent/secrets",
+              "agent/upload",
+              "agent/LLM",
+              "agent/evaluation",
+              "agent/usage",
+              "agent/financials"
+            ]
           },
           {
             "group": "Essentials",

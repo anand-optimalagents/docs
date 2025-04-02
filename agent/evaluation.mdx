@@ -1,0 +1,219 @@
+---
+title: Evaluation
+---
+
+## 1. Agent Review Process
+
+<Accordion title="Initial screening criteria for marketplace listing">
+  All submitted agents undergo automated & manual analysis checking for code
+  vulnerabilities, prohibited functionality, and adherence to API usage
+  guidelines. Documentation completeness is evaluated against standardized
+  requirements including clear purpose statements, input/output specifications,
+  and limitation disclosures. Agents must demonstrate basic functionality and
+  reliability through preliminary testing before advancing to comprehensive
+  review stages.
+</Accordion>
+<Accordion title="Performance testing benchmarks">
+  Agents are evaluated against domain-specific test suites designed to measure
+  accuracy, response time, and resilience under various load conditions. Stress
+  testing simulates high-volume usage patterns to identify potential failure
+  points and performance degradation scenarios. Comparative analysis positions
+  each agent against existing marketplace offerings with similar functionality
+  to establish relative performance expectations.
+</Accordion>
+<Accordion title="Ethical and safety evaluation procedures">
+  Multi-stage safety evaluations probe for harmful outputs, testing agent
+  responses to adversarial inputs and edge cases. Fairness assessments measure
+  performance across demographic groups to identify potential bias in agent
+  responses or recommendations. Independent review panels evaluate high-risk
+  agents with additional scrutiny for applications in sensitive domains like
+  healthcare, finance, and legal services.
+</Accordion>
+<Accordion title="Response time SLAs for review submissions">
+  Initial screening results are provided within 24 hours of submission, with
+  detailed technical feedback on any failed criteria. Standard review processes
+  for low and medium-risk agents are completed within 5 business days, providing
+  comprehensive evaluation reports. High-risk or complex agents requiring
+  specialized review may take up to 10 business days, with progress updates
+  provided at predetermined milestones.
+</Accordion>
+<Accordion title="Appeal process for rejected agents">
+  Developers can submit appeals through a structured process that requires
+  addressing specific rejection reasons with evidence of remediation via emails
+  to `info@optimalagents.ai` . Appeals are reviewed by different evaluators than
+  those involved in the initial rejection decision to ensure fresh perspective.
+  Expedited re-review options are available for agents that have addressed all
+  identified issues, with clear guidelines for qualifying for this accelerated
+  path.
+</Accordion>
+
+## 2. Content Guidelines
+
+{" "}
+
+<Accordion title="Prohibited Use Cases and Content Restrictions">
+  The platform explicitly prohibits agents designed for illegal activities,
+  harassment, discrimination, or the generation of misleading content.
+  Restrictions cover agents that could enable unauthorized access to systems,
+  circumvent security measures, or generate spam content. Detailed examples
+  clarify boundaries between acceptable and prohibited use cases, with regular
+  updates reflecting emerging risks and regulatory changes.
+</Accordion>
+<Accordion title="Ethical AI Principles and Requirements">
+  All agents must adhere to core principles including transparency in
+  capabilities, respect for user autonomy, and fairness across demographic
+  groups. Output traceability requirements ensure users can understand the basis
+  for agent recommendations and decisions, especially in high-stakes domains.
+  Developers must implement appropriate safeguards proportional to the potential
+  risks associated with their agent's functionality and intended use cases.
+</Accordion>
+<Accordion title="Compliance Requirements by Region and Industry">
+  Region-specific requirements address varying data protection regulations
+  including GDPR, CCPA, and emerging privacy frameworks. Industry-specific
+  compliance modules enforce additional safeguards for regulated sectors such as
+  healthcare (HIPAA), finance (PCI-DSS), and education (FERPA, COPPA). The
+  platform provides compliance verification tools that help developers ensure
+  their agents meet all applicable requirements for their target markets.
+</Accordion>
+<Accordion title="Content Rating System">
+  A tiered rating system classifies agents based on content sensitivity,
+  complexity of outputs, and required user expertise. Professional-only
+  designations restrict certain agents to verified business users in appropriate
+  domains like legal, medical, or financial services. Clear rating display
+  requirements ensure users understand potential content sensitivity before
+  interaction with any agent in the marketplace.
+</Accordion>
+<Accordion title="Enforcement Procedures for Violations">
+  Progressive enforcement mechanisms begin with warnings and remediation periods
+  for minor or first-time violations. Serious violations trigger immediate agent
+  suspension pending investigation and developer response. Repeat violations
+  lead to escalating consequences including extended review periods for future
+  submissions and potential developer account restrictions. All enforcement
+  actions include specific violation details and clear remediation requirements.
+</Accordion>
+
+## 3. Safety and Security
+
+<Accordion title="Security Vulnerability Assessment Methodology">
+  The platform implements a comprehensive STRIDE threat modeling approach
+  (Spoofing, Tampering, Repudiation, Information disclosure, Denial of service,
+  Elevation of privilege) for all components. Automated static and dynamic code
+  analysis tools scan agent code and configurations during submission and after
+  any updates. Third-party dependency scanning identifies known vulnerabilities
+  in libraries and frameworks used by agents, with automated notifications when
+  critical updates are required.
+</Accordion>
+<Accordion title="Performance Reliability Metrics">
+  Reliability is measured through multiple dimensions including uptime
+  percentage, mean time between failures, and response time consistency under
+  varying loads. Chaos engineering practices systematically introduce controlled
+  failures to verify system resilience and recovery mechanisms. Performance
+  degradation tracking identifies subtle issues before they impact user
+  experience, with automated alerts when metrics fall below defined thresholds.
+</Accordion>
+<Accordion title="Bias and Fairness Testing Protocols">
+  Agents undergo systematic testing against demographically diverse datasets to
+  identify performance variations across different user groups. Standard
+  fairness metrics including equalized odds, demographic parity, and
+  counterfactual fairness are calculated for each agent's outputs. Regular
+  red-team exercises challenge agents with adversarial inputs designed to elicit
+  potentially biased or harmful responses.
+</Accordion>
+<Accordion title="Regular Security Audits and Penetration Testing">
+  Independent security audits are conducted quarterly by certified third-party
+  specialists examining infrastructure, code, and operational procedures.
+  Continuous automated scanning supplements formal audits with daily
+  vulnerability checks and configuration assessments. Bug bounty programs
+  incentivize responsible disclosure of security issues from external
+  researchers and ethical hackers.
+</Accordion>
+<Accordion title="Compliance with Industry Standards">
+  The platform maintains SOC 2 Type II certification with annual audits
+  verifying controls for security, availability, and confidentiality. ISO 27001
+  certification ensures the information security management system meets
+  international standards for best practices. Additional certifications for
+  specialized industries include HIPAA compliance for healthcare and PCI-DSS for
+  payment processing when applicable.
+</Accordion>
+
+## 4. Personal Data Handling
+
+<Accordion title="Data Minimization Principles">
+  Agents are designed to operate with the minimum data necessary to fulfill
+  their function, with clear documentation of required data fields. Automated
+  data classification identifies and flags potential collection of excessive
+  personal information during the review process. Just-in-time data collection
+  practices ensure information is only gathered when needed rather than
+  preemptively stored.
+</Accordion>
+<Accordion title="Anonymization Techniques for Sensitive Information">
+  Multiple anonymization methods including tokenization, hashing, and
+  perturbation are applied based on data sensitivity and use case requirements.
+  Differential privacy techniques add calibrated noise to aggregate data while
+  preserving analytical utility for training and improvement. Pseudonymization
+  systems allow for functional operations while removing direct identifiers from
+  operational datasets.
+</Accordion>
+<Accordion title="Retention and Deletion Policies">
+  Granular data retention policies specify maximum storage durations based on
+  data type, purpose, and regulatory requirements. Automated deletion processes
+  permanently remove expired data according to schedule, with cryptographic
+  verification of complete removal. Emergency purge capabilities enable
+  immediate deletion of specific data categories when required for security or
+  compliance reasons.
+</Accordion>
+<Accordion title="Data Localization Options for Regulated Industries">
+  Regional deployment options ensure data remains within specific geographic
+  boundaries to comply with data sovereignty requirements. Industry-specific
+  configurations implement additional controls for healthcare, financial, and
+  government data with strict localization needs. Transparent documentation
+  specifies data storage locations and transfer mechanisms for all platform
+  services.
+</Accordion>
+<Accordion title="User Control Over Personal Data Usage">
+  Self-service portals allow users to view, export, and manage personal data
+  stored within the platform. Granular permission settings enable users to
+  authorize specific data uses while restricting others. Consent management
+  tracks user preferences with immutable audit logs of all preference changes
+  and data access events.
+</Accordion>
+
+## 5. Privacy Protections
+
+<Accordion title="User Consent Management System">
+  The platform implements a layered consent model that clearly communicates data
+  usage purposes with separate opt-in for distinct processing activities.
+  Consent receipts provide users with records of their authorization decisions
+  including timestamp and scope details. Withdrawal mechanisms allow users to
+  revoke previously granted permissions with immediate effect across all
+  platform components.
+</Accordion>
+<Accordion title="Data Access Controls and Permissions">
+  Role-based access control limits data visibility based on job function and
+  legitimate business need. Attribute-based policies further restrict access
+  based on data classification, user location, time of day, and other contextual
+  factors. Just-in-time privilege elevation requires explicit approval for
+  sensitive operations with comprehensive audit logging.
+</Accordion>
+<Accordion title="Compliance with Global Privacy Regulations">
+  Modular compliance frameworks address requirements from multiple regulations
+  including GDPR, CCPA/CPRA, LGPD, and emerging privacy laws. Data subject
+  request workflows automate responses to access, deletion, and portability
+  requests within regulatory timeframes. Regular compliance assessments verify
+  adherence to changing regulatory requirements across all operating
+  jurisdictions.
+</Accordion>
+<Accordion title="Privacy Impact Assessments for New Features">
+  Structured privacy impact assessment processes evaluate potential risks before
+  new features are deployed to production. Data flow mapping documents the
+  collection, processing, storage, and transfer of personal information for each
+  component. Mitigation strategies address identified risks with regular
+  reassessment when significant changes occur.
+</Accordion>
+<Accordion title="Regular Privacy Policy Updates and Notifications">
+  Clear, plain-language privacy policies explain data practices with examples
+  illustrating how information is used in practice. Policy update notifications
+  provide summaries of material changes with advance notice before
+  implementation. Version-controlled policy archives maintain historical records
+  of all privacy commitments and their effective dates.
+</Accordion>
