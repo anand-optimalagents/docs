@@ -139,12 +139,12 @@ title: Evaluation
 ## 4. Personal Data Handling
 
 <Accordion title="Data Minimization Principles">
-  Agents are designed to operate with the minimum data necessary to fulfill
-  their function, with clear documentation of required data fields. Automated
-  data classification identifies and flags potential collection of excessive
-  personal information during the review process. Just-in-time data collection
-  practices ensure information is only gathered when needed rather than
-  preemptively stored.
+  Agents should be designed to operate with the minimum data necessary to
+  fulfill their function, with clear documentation of required data fields.
+  Automated data classification identifies and flags potential collection of
+  excessive personal information during the review process. Just-in-time data
+  collection practices ensure information is only gathered when needed rather
+  than preemptively stored.
 </Accordion>
 <Accordion title="Anonymization Techniques for Sensitive Information">
   Multiple anonymization methods including tokenization, hashing, and
@@ -176,44 +176,4 @@ title: Evaluation
   authorize specific data uses while restricting others. Consent management
   tracks user preferences with immutable audit logs of all preference changes
   and data access events.
-</Accordion>
-
-## 5. Privacy Protections
-
-<Accordion title="User Consent Management System">
-  The platform implements a layered consent model that clearly communicates data
-  usage purposes with separate opt-in for distinct processing activities.
-  Consent receipts provide users with records of their authorization decisions
-  including timestamp and scope details. Withdrawal mechanisms allow users to
-  revoke previously granted permissions with immediate effect across all
-  platform components.
-</Accordion>
-<Accordion title="Data Access Controls and Permissions">
-  Role-based access control limits data visibility based on job function and
-  legitimate business need. Attribute-based policies further restrict access
-  based on data classification, user location, time of day, and other contextual
-  factors. Just-in-time privilege elevation requires explicit approval for
-  sensitive operations with comprehensive audit logging.
-</Accordion>
-<Accordion title="Compliance with Global Privacy Regulations">
-  Modular compliance frameworks address requirements from multiple regulations
-  including GDPR, CCPA/CPRA, LGPD, and emerging privacy laws. Data subject
-  request workflows automate responses to access, deletion, and portability
-  requests within regulatory timeframes. Regular compliance assessments verify
-  adherence to changing regulatory requirements across all operating
-  jurisdictions.
-</Accordion>
-<Accordion title="Privacy Impact Assessments for New Features">
-  Structured privacy impact assessment processes evaluate potential risks before
-  new features are deployed to production. Data flow mapping documents the
-  collection, processing, storage, and transfer of personal information for each
-  component. Mitigation strategies address identified risks with regular
-  reassessment when significant changes occur.
-</Accordion>
-<Accordion title="Regular Privacy Policy Updates and Notifications">
-  Clear, plain-language privacy policies explain data practices with examples
-  illustrating how information is used in practice. Policy update notifications
-  provide summaries of material changes with advance notice before
-  implementation. Version-controlled policy archives maintain historical records
-  of all privacy commitments and their effective dates.
 </Accordion>
