@@ -5,6 +5,31 @@ title: Development
 This document will help you create, deploy, and integrate AI agents seamlessly on our platform.
 Whether you're building an API, chatbot, or website-based AI, this guide will walk you through the essential steps.
 
+## 🔄 Interface & Routes
+
+Design your agent's interface routes following these guidelines:
+
+1. Main Interface
+
+   - Create a single unified interface at "/" for all user interactions
+   - Keep the interface clean and intuitive
+
+2. API routes
+
+   - Define routes for API interactions
+   - Use RESTful principles for API design
+   - Example routes:
+     - `/run` - for executing agent logic
+     - `/process` - for processing user input
+     - `/status` - for checking agent status
+
+3. Documentation
+   - All routes and endpoints must be documented at "/docs"
+   - Use built-in documentation tools:
+     - FastAPI: Built-in Swagger UI
+     - Flask: Flask-RESTPlus or Flask-Swagger
+     - Node.js: Swagger UI Express or similar
+
 ## 📂 Folder Structure
 
 To keep things organized, structure your project like this:
@@ -12,14 +37,15 @@ To keep things organized, structure your project like this:
 ```
 /my-agent
 │── Dockerfile
-│── .env (ignored in Git)
 │── requirements.txt (for Python projects)
+├── main.py (entry point)
 │── src/
-│ ├── main.py (entry point)
-│ ├── utils.py
-│ ├── handlers/
+│   ├── utils.py
+│   ├── handlers/
 │── logs/
-│ ├── agent.log
+│   ├── agent.log
+│── instead of .env -> use Secret Manager
+
 ```
 
 ## 🌐 Routes & API Endpoints
@@ -71,7 +97,7 @@ def run():
     return jsonify(response)
 
 if **name** == "**main**":
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=8000)
 ```
 
 Ensure your routes are well-documented and secured.
@@ -79,7 +105,10 @@ Ensure your routes are well-documented and secured.
 ## 🔑 Env Variables (Secrets)
 
 Secrets are environment variables required by your agent to function which will be passed to the Docker container when the agent runs.
-Store them securely in your profile's Secret manager. These variables will be securely managed by OptimalAgents.ai and injected into the agent’s docker runtime environment.
+Store them securely in your profile's Secret manager.
+These variables will be securely managed by OptimalAgents.ai and injected into the agent’s docker runtime environment.
+
+By default, we will including **AGENT_ID**, **CREATOR_API_KEY**, **_Secrets_** as environment variables.
 
 Examples include:
 
@@ -93,7 +122,7 @@ Never hardcode secrets! Load them in your app like this:
 
 ```
 import os
-api_key = os.getenv("API_KEY")
+api_key = os.getenv("CREATOR_API_KEY")
 ```
 
 ## 🔐 Credit Check & Authorization
@@ -150,7 +179,7 @@ Error Response (Unauthorized Agent)
 All agents run inside Docker containers. Your Dockerfile should look like this:
 
 ```
-FROM python:3.9
+FROM python:3.11-slim
 WORKDIR /app
 COPY . /app
 RUN pip install -r requirements.txt

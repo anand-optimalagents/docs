@@ -13,14 +13,15 @@ To keep things organized, structure your project like this:
 ```
 /my-agent
 │── Dockerfile
-│── .env (ignored in Git)
 │── requirements.txt (for Python projects)
+├── main.py (entry point)
 │── src/
-│ ├── main.py (entry point)
-│ ├── utils.py
-│ ├── handlers/
+│   ├── utils.py
+│   ├── handlers/
 │── logs/
-│ ├── agent.log
+│   ├── agent.log
+│── instead of .env -> use Secret Manager
+
 ```
 
 ## 🚀 Upload Your Agent
@@ -45,10 +46,10 @@ To keep things organized, structure your project like this:
 3. Language of the video should be English.
 4. It is recommended to talk about the below in the video you create.
 
-- a. State problem statement - Why the problem? Who will use the solution?
-- b. Solutioning/Whiteboarding - How are you going to solve this?
-- c. Input of the agent created - What does someone need to input? In what format, conditions, etc.
-- d. Output of the agent created - What is the output of Agent? Text, Voice, Image, Video, Data, etc
-- e. And whatever relevant you would want to talk about.
+   - a. State problem statement - Why the problem? Who will use the solution?
+   - b. Solutioning/Whiteboarding - How are you going to solve this?
+   - c. Input of the agent created - What does someone need to input? In what format, conditions, etc.
+   - d. Output of the agent created - What is the output of Agent? Text, Voice, Image, Video, Data, etc
+   - e. And any relevant talks you would want to tell about.
 
 5. You can also create a small instagram/tiktok reel in addition to above, ideally 20-30sec.
