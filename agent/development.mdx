@@ -13,6 +13,10 @@ Design your agent's interface routes following these guidelines:
 
    - Create a single unified interface at "/" for all user interactions
    - Keep the interface clean and intuitive
+   - Put clear instructions on how to use the agent
+   - Use a framework like FastAPI, Flask, or Node.js for building the interface
+   - Ensure the interface is responsive and user-friendly
+   - Need to use windows.href (javascript ) then add /your path name
 
 2. API routes
 
@@ -22,6 +26,47 @@ Design your agent's interface routes following these guidelines:
      - `/run` - for executing agent logic
      - `/process` - for processing user input
      - `/status` - for checking agent status
+     - `/uploads` - for uploading files
+     - `/docs` - for API & Route documentation
+   - Use appropriate HTTP methods (GET, POST, PUT, DELETE) for each route
+   - Use JSON for data exchange
+   - Use appropriate HTTP status codes for responses
+   - Use appropriate HTTP headers for authentication and content type
+   - For client-side navigation, utilize window.location.href followed by your desired route path
+   - include User-Token in the request headers for all API calls to the agent
+
+   ```javascript
+   // Function to get a cookie by name
+   function getCookie(name) {
+     let cookies = document.cookie.split("; ");
+     for (let cookie of cookies) {
+       let [key, value] = cookie.split("=");
+       if (key === name) {
+         return decodeURIComponent(value);
+       }
+     }
+     return null;
+   }
+   let accessToken = getCookie("accessToken");
+
+   const url = window.location.href.replace(/\/+$/, "") + "/data";
+   fetch(url, {
+     method: "GET",
+     headers: {
+       "Content-Type": "application/json",
+       "User-Token": `${accessToken}`,
+     },
+   })
+     .then((response) => response.json())
+     .then((data) => {
+       console.log("Success:", data);
+       // Handle success response
+     })
+     .catch((error) => {
+       console.error("Error:", error);
+       // Handle error response
+     });
+   ```
 
 3. Documentation
    - All routes and endpoints must be documented at "/docs"
@@ -47,6 +92,11 @@ To keep things organized, structure your project like this:
 │── instead of .env -> use Secret Manager
 
 ```
+
+- Zip the project folder (e.g. /my-agent ) into a `.zip` file. Ensure that the Dockerfile and all necessary files are included in the zip.
+- Check the size of the zip file to ensure it is within the upload limits set by OptimalAgents.ai (typically 100MB).
+- Make sure to remove unnecessary files or folders (like `.git` or `node_modules` or `virtual env` folders) to keep the upload size minimal.
+- If your project exceeds this limit, consider optimizing or splitting it into smaller components.
 
 ## 🌐 Routes & API Endpoints
 
@@ -198,6 +248,27 @@ Run the container:
 
 ```
 docker run -p 5000:5000 my-agent
+```
+
+A Docker image will be automatically generated upon initial deployment and regenerated following any edits to the codebase.
+
+For file uploads, kindly direct your bytes to the '/app/uploads' directory - it's where the magic happens! OptimalAgents has cleverly bound a persistent storage space to this location, ensuring your uploads don't pull a disappearing act.
+
+🗂️## CORS Configuration
+
+To enable Cross-Origin Resource Sharing (CORS) for all origins and ports in your server-side application, configure your middleware with appropriate security settings.
+
+```
+# from fastapi.middleware.cors import CORSMiddleware
+# from fastapi import FastAPI
+# app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 ```
 
 ## 📜 Logging & Monitoring
