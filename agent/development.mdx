@@ -93,7 +93,7 @@ To keep things organized, structure your project like this:
 
 ```
 
-- **Zip the project folder (e.g. /my-agent ) into a `.zip` file**. Ensure that the Dockerfile and all necessary files are included in the zip.
+- **Zip the project folder (e.g. /my-agent ) into a `.zip` file**. Ensure that the Dockerfile and all necessary files are included in the root folder within the zip.
 - Check the size of the zip file to ensure it is within the upload limits set by OptimalAgents.ai (typically 100MB).
 - Make sure to remove unnecessary files or folders (like `.git` or `node_modules` or `virtual env` folders) to keep the upload size minimal.
 - If your project exceeds this limit, consider optimizing or splitting it into smaller components.
@@ -157,6 +157,8 @@ Ensure your routes are well-documented and secured.
 Secrets are environment variables required by your agent to function which will be passed to the Docker container when the agent runs.
 Store them securely in your profile's Secret manager.
 These variables will be securely managed by OptimalAgents.ai and injected into the agent’s docker runtime environment.
+
+Please generate your **CREATOR_API_KEY**. This will be required to run any Agent that you have uploaded
 
 By default, we will including **AGENT_ID**, **CREATOR_API_KEY**, **_Secrets_** as environment variables.
 
