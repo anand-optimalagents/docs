@@ -8,6 +8,10 @@
     "dark": "#15803D"
   },
   "favicon": "/favicon.ico",
+  "feedBack": {
+    "suggestEdit": false,
+    "raiseIssue": false
+  },
   "navigation": {
     "tabs": [
       {
@@ -37,13 +41,18 @@
       "anchors": [
         {
           "anchor": "Documentation",
-          "href": "https://docs.optimalagents.in",
+          "href": "https://docs.optimalagents.ai",
           "icon": "book-open-cover"
         },
         {
-          "anchor": "Community",
-          "href": "https://community.optimalagents.in",
-          "icon": "users"
+          "anchor": "Login",
+          "href": "https://optimalagents.ai/login",
+          "icon": "user"
+        },
+        {
+          "anchor": "Dashboard",
+          "href": "https://optimalagents.ai/dashboard",
+          "icon": "box"
         }
       ]
     }
