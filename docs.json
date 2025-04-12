@@ -8,7 +8,10 @@
     "dark": "#15803D"
   },
   "favicon": "/favicon.ico",
-
+  "feedback": {
+    "suggestEdit": false,
+    "raiseIssue": false
+  },
   "navigation": {
     "tabs": [
       {
