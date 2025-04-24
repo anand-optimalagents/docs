@@ -1,25 +1,27 @@
 ---
-title: Development
+title: "Development"
 ---
 
 This document will help you create, deploy, and integrate AI agents seamlessly on our platform.
 Whether you're building an API, chatbot, or website-based AI, this guide will walk you through the essential steps.
+
+Here are few samples to understand & use 
+
+- https://github.com/optimalagents-ai/magic-rag-chatbot
+- https://github.com/optimalagents-ai/db-query-chatbot-agent
 
 ## 🔄 Interface & Routes
 
 Design your agent's interface routes following these guidelines:
 
 1. Main Interface
-
    - Create a single unified interface at "/" for all user interactions
    - Keep the interface clean and intuitive
    - Put clear instructions on how to use the agent
    - Use a framework like FastAPI, Flask, or Node.js for building the interface
    - Ensure the interface is responsive and user-friendly
    - Need to use windows.href (javascript ) then add /your path name
-
 2. API routes
-
    - Define routes for API interactions
    - Use RESTful principles for API design
    - Example routes:
@@ -48,7 +50,7 @@ Design your agent's interface routes following these guidelines:
      return null;
    }
    let accessToken = getCookie("accessToken");
-
+   
    const url = window.location.href.replace(/\/+$/, "") + "/data";
    fetch(url, {
      method: "GET",
@@ -67,7 +69,6 @@ Design your agent's interface routes following these guidelines:
        // Handle error response
      });
    ```
-
 3. Documentation
    - All routes and endpoints must be documented at "/docs"
    - Use built-in documentation tools:
@@ -90,10 +91,9 @@ To keep things organized, structure your project like this:
 │── logs/
 │   ├── agent.log
 │── instead of .env -> use Secret Manager
-
 ```
 
-- **Zip the project folder (e.g. /my-agent ) into a `.zip` file**. Ensure that the Dockerfile and all necessary files are included in the root folder within the zip.
+- **`Zip the project folder (e.g. /my-agent ) into a .zip file`**. Ensure that the Dockerfile and all necessary files are included in the root folder within the zip.
 - Check the size of the zip file to ensure it is within the upload limits set by OptimalAgents.ai (typically 100MB).
 - Make sure to remove unnecessary files or folders (like `.git` or `node_modules` or `virtual env` folders) to keep the upload size minimal.
 - If your project exceeds this limit, consider optimizing or splitting it into smaller components.
@@ -174,7 +174,7 @@ DB_URL=your_database_url
 MODEL_NAME=gpt-4
 ```
 
-Never hardcode secrets! Load them in your app like this:
+Never hardcode secrets\! Load them in your app like this:
 
 ```
 import os
@@ -198,7 +198,6 @@ User-Token: <USER_TOKEN>
   "api_key": "<CREATOR_API_KEY>",
   "agent_id": "<AGENT_ID>"
 }
-
 ```
 
 Handling Responses
@@ -258,7 +257,7 @@ docker run -p 5000:5000 my-agent
 
 A Docker image will be automatically generated upon initial deployment and regenerated following any edits to the codebase.
 
-For file uploads, kindly direct your bytes to the '/app/uploads' directory - it's where the magic happens! OptimalAgents has cleverly bound a persistent storage space to this location, ensuring your uploads don't pull a disappearing act.
+For file uploads, kindly direct your bytes to the '/app/uploads' directory - it's where the magic happens\! OptimalAgents has cleverly bound a persistent storage space to this location, ensuring your uploads don't pull a disappearing act.
 
 🗂️## CORS Configuration
 
@@ -287,7 +286,7 @@ logging.basicConfig(level=logging.INFO, filename='logs/agent.log')
 logging.info("Agent started successfully!")
 ```
 
-Always log errors and API failures for troubleshooting!
+Always log errors and API failures for troubleshooting\!
 
-Congratulations! 🎉 You now have everything needed to create and deploy AI agents on OptimalAgents.ai.
-If you need help, reach out to our support team or explore our community forums! 🚀
+Congratulations\! 🎉 You now have everything needed to create and deploy AI agents on OptimalAgents.ai.
+If you need help, reach out to our support team or explore our community forums\! 🚀
