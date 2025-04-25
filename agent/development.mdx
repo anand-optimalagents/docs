@@ -5,7 +5,7 @@ title: "Development"
 This document will help you create, deploy, and integrate AI agents seamlessly on our platform.
 Whether you're building an API, chatbot, or website-based AI, this guide will walk you through the essential steps.
 
-Here are few samples to understand & use 
+Here are few samples to understand & use
 
 - https://github.com/optimalagents-ai/magic-rag-chatbot
 - https://github.com/optimalagents-ai/db-query-chatbot-agent
@@ -34,6 +34,7 @@ Design your agent's interface routes following these guidelines:
    - Use JSON for data exchange
    - Use appropriate HTTP status codes for responses
    - Use appropriate HTTP headers for authentication and content type
+   - Please keep all your routes in one main file ( [main.py](http://main.py) or [app.py](http://app.py) )
    - For client-side navigation, utilize window.location.href followed by your desired route path
    - include User-Token in the request headers for all API calls to the agent
 
