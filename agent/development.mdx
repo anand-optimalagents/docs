@@ -107,8 +107,8 @@ Your agent can expose API endpoints for users to interact with. Example setup in
 from flask import Flask, request, jsonify
 app = Flask(**name**)
 
-agent_id = OS.getenv("AGENT_ID")
-api_key = OS.getenv("CREATOR_API_KEY")
+agent_id = os.getenv("AGENT_ID")
+api_key = os.getenv("CREATOR_API_KEY")
 
 def check_agent_run(user_token, api_key, agent_id):
     url = "https://optimalagents.ai/check-user-credits"
@@ -121,6 +121,7 @@ def check_agent_run(user_token, api_key, agent_id):
         print("Agent execution permitted.")
     else:
         print(f"Error: {result.get('message')}")
+    return result
 
 
 @app.route("/")
