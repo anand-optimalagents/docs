@@ -22,6 +22,7 @@ Design your agent's interface routes following these guidelines:
    - Ensure the interface is responsive and user-friendly
    - Need to use windows.href (javascript ) then add /your path name
 2. API routes
+
    - Define routes for API interactions
    - Use RESTful principles for API design
    - Example routes:
@@ -39,25 +40,13 @@ Design your agent's interface routes following these guidelines:
    - include User-Token in the request headers for all API calls to the agent
 
    ```javascript
-   // Function to get a cookie by name
-   function getCookie(name) {
-     let cookies = document.cookie.split("; ");
-     for (let cookie of cookies) {
-       let [key, value] = cookie.split("=");
-       if (key === name) {
-         return decodeURIComponent(value);
-       }
-     }
-     return null;
-   }
-   let accessToken = getCookie("accessToken");
-   
+   // Function to change the URL to fit the agent's path
+
    const url = window.location.href.replace(/\/+$/, "") + "/data";
    fetch(url, {
      method: "GET",
      headers: {
        "Content-Type": "application/json",
-       "User-Token": `${accessToken}`,
      },
    })
      .then((response) => response.json())
@@ -70,6 +59,7 @@ Design your agent's interface routes following these guidelines:
        // Handle error response
      });
    ```
+
 3. Documentation
    - All routes and endpoints must be documented at "/docs"
    - Use built-in documentation tools:
@@ -107,46 +97,46 @@ Your agent can expose API endpoints for users to interact with. Example setup in
 from flask import Flask, request, jsonify
 app = Flask(**name**)
 
-agent_id = os.getenv("AGENT_ID")
-api_key = os.getenv("CREATOR_API_KEY")
 
-def check_agent_run(user_token, api_key, agent_id):
-    url = "https://optimalagents.ai/check-user-credits"
-    headers = {"User-Token": user_token}
-    data = {"api_key": api_key, "agent_id": agent_id}
-    response = requests.post(url, json=data, headers=headers)
-    result = response.json()
+
+def check_agent_run():
+  url = "https://optimalagents.ai/check-user-credits"
+  agent_id = os.getenv("AGENT_ID")
+  api_key = os.getenv("CREATOR_API_KEY")
+  user_id = os.getenv("USER_ID")
+  data = {"api_key": api_key, "agent_id": agent_id, "user_id": user_id}
+  response = requests.post(url, json=data)
+  result = response.json()
 
     if result.get("status") == "allowed":
         print("Agent execution permitted.")
     else:
         print(f"Error: {result.get('message')}")
-    return result
 
 
 @app.route("/")
 def home():
-    return "Welcome to the AI Agent!"
+  return "Welcome to the AI Agent!"
 
 @app.route("/docs")
 def docs():
-    return "API Documentation: /process"
+  return "API Documentation: /process"
 
 @app.route("/run", methods=["POST"])
 def run():
-    ##check for user authorization and credit verification
-    resp = check_agent_run(request.headers.get("User-Token"), api_key, agent_id)
-    if resp.get("status") == "allowed":
-        authorized = True
-        enough_credits = True
-    else:
-        authorized = False
-        enough_credits = False
-    if not authorized or not enough_credits:
-        return jsonify({"error": "Unauthorized or insufficient credits"}), 403
-    data = request.json
-    response = {"result": "Processed " + str(data)}
-    return jsonify(response)
+  ##check for user authorization and credit verification
+  resp = check_agent_run()
+  if resp.get("status") == "allowed":
+      authorized = True
+      enough_credits = True
+  else:
+      authorized = False
+      enough_credits = False
+  if not authorized or not enough_credits:
+      return jsonify({"error": "Unauthorized or insufficient credits"}), 403
+  data = request.json
+  response = {"result": "Processed " + str(data)}
+  return jsonify(response)
 
 if **name** == "**main**":
     app.run(host='0.0.0.0', port=8000)
@@ -194,11 +184,11 @@ Make a request before executing agent logic:
 ```
 POST https://optimalagents.ai/check-user-credits
 Content-Type: application/json
-User-Token: <USER_TOKEN>
 
 {
   "api_key": "<CREATOR_API_KEY>",
-  "agent_id": "<AGENT_ID>"
+  "agent_id": "<AGENT_ID>",
+  "user_id": "<USER_ID>"
 }
 ```
 
@@ -261,7 +251,7 @@ A Docker image will be automatically generated upon initial deployment and regen
 
 For file uploads, kindly direct your bytes to the '/app/uploads' directory - it's where the magic happens\! OptimalAgents has cleverly bound a persistent storage space to this location, ensuring your uploads don't pull a disappearing act.
 
-## 🗂️ CORS Configuration 
+## 🗂️ CORS Configuration
 
 To enable Cross-Origin Resource Sharing (CORS) for all origins and ports in your server-side application, configure your middleware with appropriate security settings.
 
@@ -269,6 +259,7 @@ To enable Cross-Origin Resource Sharing (CORS) for all origins and ports in your
 # from fastapi.middleware.cors import CORSMiddleware
 # from fastapi import FastAPI
 # app = FastAPI()
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
