@@ -97,8 +97,6 @@ Your agent can expose API endpoints for users to interact with. Example setup in
 from flask import Flask, request, jsonify
 app = Flask(**name**)
 
-
-
 def check_agent_run():
   url = "https://optimalagents.ai/check-user-credits"
   agent_id = os.getenv("AGENT_ID")
